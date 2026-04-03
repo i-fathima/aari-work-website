@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login /Register - Lotus Aari Work</title>
+    <style>
+        :root {
+            --purple: #6B07AF;
+            --purple-dark: #4b007f;
+            --white: #fff;
+            --text: #222;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background: #fff;
+            padding: 100px 100px 0 100px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .header-top {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            padding: 16px 20px;
+        }
+
+        .top-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand img {
+            width: 96px;
+            height: auto;
+        }
+
+        .brand-text .name {
+            font-family: 'Lucida Calligraphy', 'Brush Script MT', cursive;
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            color: var(--purple);
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .brand-text .subtitle {
+            font-size: clamp(1.2rem, 2.7vw, 2rem);
+            color: #3e0f97;
+            font-weight: 800;
+            margin: 0;
+            margin-top: -6px;
+        }
+
+        .contact {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .contact a {
+            color: var(--purple-dark);
+            text-decoration: none;
+        }
+
+        .navbar {
+            background: var(--purple);
+            padding: 12px 0;
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-inner a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 700;
+            padding: 10px 10px;
+            border-radius: 6px;
+        }
+
+        .nav-inner a:hover {
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .btn-login {
+            background: #fff;
+            color: var(--purple);
+            padding: 10px 20px;
+            border-radius: 24px;
+            border: 2px solid #fff;
+        }
+
+        .main {
+            padding: 26px 20px;
+        }
+
+        @media (max-width: 860px) {
+            body {
+                padding: 0;
+            }
+
+            .contact {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .nav-inner {
+                gap: 18px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .nav-inner {
+                gap: 10px;
+            }
+
+            .nav-inner a {
+                font-size: 1rem;
+                padding: 8px 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+    <main class="main" style="display:flex;justify-content:center;align-items:center;padding:100px 0;">
+        <div class="login-form-card"
+            style="width:min(520px,100%);background:#fff;border:2px solid #f0e4ff;border-radius:16px;padding:36px;box-shadow:0 10px 18px rgba(0,0,0,0.06);">
+            <h2 style="margin-bottom:18px;color:var(--purple);text-align:center;">Login / Register</h2>
+            <form style="display:grid;gap:14px;">
+                <label>Name</label>
+                <input type="text" placeholder="Enter your Name"
+                    style="border:2px solid var(--purple);border-radius:14px;padding:12px;font-size:1.1rem;" />
+                <label>Mobile Number</label>
+                <input type="text" placeholder="Enter your Mobile Number"
+                    style="border:2px solid var(--purple);border-radius:14px;padding:12px;font-size:1.1rem;" />
+                <label>Email</label>
+                <input type="email" placeholder="Enter your Email"
+                    style="border:2px solid var(--purple);border-radius:14px;padding:12px;font-size:1.1rem;" />
+                <label>Password</label>
+                <input type="password" placeholder="Create Password"
+                    style="border:2px solid var(--purple);border-radius:14px;padding:12px;font-size:1.1rem;" />
+                <button type="submit"
+                    style="border:none;background:var(--purple);color:#fff;padding:14px;border-radius:12px;font-size:1.6rem;cursor:pointer;">Submit</button>
+            </form>
+            <p style="margin-top:16px;text-align:center;">Already Have an Account ? <a href="#"
+                    style="color:var(--purple);text-decoration:none;">Login</a></p>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script>
+        (async () => {
+            try {
+                const nav = await fetch('navBar.html');
+                if (nav.ok) document.getElementById('navbar-placeholder').innerHTML = await nav.text();
+                const foot = await fetch('footer.html');
+                if (foot.ok) document.getElementById('footer-placeholder').innerHTML = await foot.text();
+            } catch (e) { console.error(e); }
+        })();
+    </script>
+
+</html>

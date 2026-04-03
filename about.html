@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Lotus Aari Work</title>
+    <style>
+        :root {
+            --purple: #6B07AF;
+            --purple-dark: #4b007f;
+            --bg: #fff;
+            --text: #1f163f;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background: #fff;
+            padding: 100px 100px 0 100px;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .section-title h1 {
+            font-size: clamp(2.4rem, 6vw, 4rem);
+            /* color: var(--purple); */
+        }
+
+        .section-box {
+            border: 2px solid var(--purple);
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .section-box h2 {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .section-box p {
+            font-size: 2.4rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .image-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 34px;
+        }
+
+        .image-row img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .15);
+        }
+
+        @media (max-width: 900px) {
+            body {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main class="content">
+        <div class="section-title">
+            <h1>Our Vision</h1>
+        </div>
+        <div class="section-box">
+            <p>To be the foremost global hub for Aari embroidery excellence, inspiring a community of artisans and
+                enthusiasts dedicated to preserving, innovating and celebrating the rich heritage of this traditional
+                craft.</p>
+        </div>
+
+        <div class="section-title">
+            <h1>Our Mission</h1>
+        </div>
+        <div class="section-box">
+            <p>Provide a comprehensive and experiential learning platform, empowering individuals to master the art of
+                Aari embroidery with a focus on precision, creativity, and innovation.</p>
+        </div>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script>
+        (async () => {
+            try {
+                const nav = await fetch('navBar.html');
+                if (nav.ok) document.getElementById('navbar-placeholder').innerHTML = await nav.text();
+                const footer = await fetch('footer.html');
+                if (footer.ok) document.getElementById('footer-placeholder').innerHTML = await footer.text();
+            } catch (e) { console.error(e); }
+        })();
+    </script>
+</body>
+
+</html>
